@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>resume</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html,body{
+            height: 100%;
+            width: 100%;
+            padding-top: 1%;
+            display: grid;
+            place-items: center;
+        }
+        #main{
+            
+            height: 100%;
+            width: 30%;
+           
+            box-shadow: 0 0 10px black;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div class="container" id="resume">
+            <img src="resume.png" alt="">
+          
+       
+            
+          
+          </div>
+
+    </div>
+    <br>
+    <button style="padding: 1% 2%; cursor: pointer;"  onclick="downloadPDF()">Download PDF</button>
+    <br><br>
+    
+</body>
+
+
+<script>
+  function downloadPDF() {
+    const pdfElement = document.getElementById('resume');
+    const opt = {
+      margin:       1,
+      filename:     'professional_resume.pdf',
+      image:        { type: 'jpeg', quality: 0.98 },
+      html2canvas:  { scale: 2 },
+      jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+    html2pdf().from(pdfElement).set(opt).save();
+  }
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+</html>
